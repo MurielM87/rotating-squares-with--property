@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@property --degs {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --degs: 0deg;
+  --incrementor: 0deg;
+  --rotation: 0deg;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  font-family: "Roboto", sans-serif;
+}
+
+#container {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container * {
+  border-style: solid;
+  position: absolute;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    var(--degs),
+    #1d9f9f,
+    #0099b8,
+    #008ed0,
+    #007edd,
+    #7165d4,
+    #a254c3,
+    #c53ea9,
+    #dc2888,
+    #eb3775,
+    #f44b64,
+    #f76154,
+    #f67747
+  );
+  animation: 3s rotateMe linear infinite;
+  transform: rotate(var(--rotation));
+}
+
+@keyframes rotateMe {
+  to {
+    --degs: calc(360deg + var(--incrementor));
+  }
+}
+
+#controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 1px solid white;
+  width: 20vw;
+  color: white;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  font-size: 0.75em;
+}
+
+#controls div:not(:first-child) label {
+  padding-top: 16px;
+}
+
+input {
+  appearance: none;
+  width: 100%;
+  display: inline-block;
+  height: 3px;
+  background-color: white;
+  margin: 12px 0;
+  color: white;
+}
+
+#numSquare:before {
+  content: "1";
+  margin-top: 8px;
+  display: block;
+}
+
+#numSquare:after {
+  content: "100";
+  margin-top: 8px;
+  display: block;
+}
+
+#border:before {
+  content: "1";
+  margin-top: 8px;
+  display: block;
+}
+
+#border:after {
+  content: "20";
+  margin-top: 8px;
+  display: block;
+}
+
+#space:before {
+  content: "1";
+  margin-top: 8px;
+  display: block;
+}
+
+#space:after {
+  content: "100";
+  margin-top: 8px;
+  display: block;
+}
+
+#numSquare:before {
+  content: "1";
+  margin-top: 8px;
+  display: block;
+}
+
+#numSquare:after {
+  content: "100";
+  margin-top: 8px;
+  display: block;
+}
+
+#degree:before {
+  content: "0";
+  margin-top: 8px;
+  display: block;
+}
+
+#degree:after {
+  content: "359";
+  margin-top: 8px;
+  display: block;
+}
